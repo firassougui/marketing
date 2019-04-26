@@ -1,5 +1,5 @@
 <?PHP 
-include "../core/promotionC.php";
+include_once "../core/promotionC.php";
 $promo=new PromotionC();
 $listePromo=$promo->trierpromo();
 
@@ -7,7 +7,7 @@ $listePromo=$promo->trierpromo();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style3.css">
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +56,7 @@ $(document).ready(function(){
 					</div>
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span> Ajouter Nouvelle Promotion </span></a>
-						<form method="POST" action="afficherPromo.php"> 
+						<form method="POST" action="promotions.php"> 
 						<button class="btn btn-success" type="submit" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span> Reset  </span></button>
 												</form>
 					</div>
@@ -97,12 +97,12 @@ $(document).ready(function(){
 						<td><?PHP echo $row['taux'];?></td> 
 						
 						<td>
-							<form method="POST" action="supprimerPromo.php">
+							<form method="POST" action="../views/supprimerPromo.php">
 						 <button type="submit" class="btn btn-danger">  <i class="material-icons" data-toggle="tooltip" title="Supprimer">&#xE15C;</i> <span>Supprimer</span> </button>
 						 <input type="hidden" value="<?PHP echo $row['id_promo']; ?>" name="id_promo">
 						 </form>
 						 <td>
-						 <a href="modifierPromo.php?id_promo=<?PHP echo $row['id_promo']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+						 <a href="../views/modifierPromo.php?id_promo=<?PHP echo $row['id_promo']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 						</td>
 						
 						<?PHP }?>
@@ -121,7 +121,7 @@ $(document).ready(function(){
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form method="POST" action="ajoutPromo.php">
+				<form method="POST" action="../views/ajoutPromo.php">
 					<div class="modal-header">						
 						<h4 class="modal-title">Ajouter une promotion</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

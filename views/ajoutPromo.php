@@ -7,7 +7,7 @@ $promo=new promotion($_POST['id_promo'],$_POST['id_produit'],$_POST['date'],$_PO
 
 $pro=new PromotionC();
 $pro->ajouterPromo($promo);
-header('Location: afficherPromo.php');
+header('Location: ../kiaalap-master/promotions.php');
 	
 }else{
 	echo "vérifier les champs";

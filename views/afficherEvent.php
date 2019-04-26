@@ -1,12 +1,12 @@
 <?PHP 
-include "../core/evenementC.php";
+include_once "../core/evenementC.php";
 $evenement1C=new EvenementC();
 $listeEvenement=$evenement1C->afficherEvent();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style3.css">
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,12 +50,20 @@ $(document).ready(function(){
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-6">
-						<h2>Liste<b>D'Evenements</b></h2>
+                    <div class="col-sm-4">
+						<h2>Liste<b> D'Evenements</b></h2>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-3">
+					<form method="POST" action="eventsRecherche.php"> 
+								<button class="btn btn-success" type="submit" data-toggle="modal"><i class="glyphicon glyphicon-search"></i> </button>
+						<input type="text" name="id" id="id" placeholder="ID à rechercher"  class="inputjdid" required>
+				
+						</form>
+
+					</div>
+					<div class="col-sm-5">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter Des Evenements</span></a>
-						<form method="POST" action="afficherEvent1.php"> 
+						<form method="POST" action="eventsTrie.php"> 
 						<button class="btn btn-success" type="submit" data-toggle="modal"><i class="glyphicon glyphicon-th-list"></i> <span> Trier Par Date  </span></button>
 						</form>
 					</div>
@@ -97,12 +105,12 @@ $(document).ready(function(){
 						<td><?PHP echo $row['description'];?></td> 
 						
 						<td>
-							<form method="POST" action="supprimerEvenement.php">
+							<form method="POST" action="../views/supprimerEvenement.php">
 						 <button type="submit" class="btn btn-danger">  <i class="material-icons" data-toggle="tooltip" title="Supprimer">&#xE15C;</i> <span>Supprimer</span> </button>
 						 <input type="hidden" value="<?PHP echo $row['id_event']; ?>" name="id_event">
 						 </form>
 						 <td>
-						 <a href="modifierEvent.php?id_event=<?PHP echo $row['id_event']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+						 <a href="../kiaalap-master/eventsModifier.php?id_event=<?PHP echo $row['id_event']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="modofier">&#xE254;</i></a>
 						</td>
 						
 						<?PHP }?>
@@ -121,7 +129,7 @@ $(document).ready(function(){
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form method="POST" action="ajoutEvent.php">
+				<form method="POST" action="../views/ajoutEvent.php">
 					<div class="modal-header">						
 						<h4 class="modal-title">Ajoute un Evenement</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

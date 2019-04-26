@@ -1,5 +1,5 @@
 <?PHP 
-include "../core/evenementC.php";
+include_once "../core/evenementC.php";
 $evenement1C=new EvenementC();
 $listeEvenement=$evenement1C->trierEvent();
 ?>
@@ -55,8 +55,8 @@ $(document).ready(function(){
 					</div>
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter Des Evenements</span></a>
-						<form method="POST" action="afficherEvent.php"> 
-						<button class="btn btn-success" type="submit" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span> Reset  </span></button>
+						<form method="POST" action="events.php"> 
+						<button class="btn btn-success" type="submit" data-toggle="modal"><i class="glyphicon glyphicon-menu-left"></i> <span> Reset  </span></button>
 						</form>
 												
 					</div>
@@ -98,12 +98,12 @@ $(document).ready(function(){
 						<td><?PHP echo $row['description'];?></td> 
 						
 						<td>
-							<form method="POST" action="supprimerEvenement.php">
+							<form method="POST" action="../views/supprimerEvenement.php">
 						 <button type="submit" class="btn btn-danger">  <i class="material-icons" data-toggle="tooltip" title="Supprimer">&#xE15C;</i> <span>Supprimer</span> </button>
 						 <input type="hidden" value="<?PHP echo $row['id_event']; ?>" name="id_event">
 						 </form>
 						 <td>
-						 <a href="modifierEvent.php?id_event=<?PHP echo $row['id_event']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+						 <a href="../views/modifierEvent.php?id_event=<?PHP echo $row['id_event']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 						</td>
 						
 						<?PHP }?>
@@ -122,7 +122,7 @@ $(document).ready(function(){
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form method="POST" action="ajoutEvent.php">
+				<form method="POST" action="../views/ajoutEvent.php">
 					<div class="modal-header">						
 						<h4 class="modal-title">Ajoute un Evenement</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

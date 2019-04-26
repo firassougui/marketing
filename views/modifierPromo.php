@@ -67,6 +67,6 @@ if (isset($_POST['modifier'])){
 	$pro=new promotion($_POST['id_promo'],$_POST['id_produit'],$_POST['date'],$_POST['taux']);
 	$promo->modifierPromo($pro,$_POST['id_promo_ini']);
 	echo $_POST['id_promo_ini'];
-	header('Location: afficherPromo.php');
+	header('Location: ../kiaalap-master/promotions.php');
 }
 ?>

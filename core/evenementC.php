@@ -1,5 +1,5 @@
 <?PHP
-include "../config.php";
+include_once "../config1.php";
 class EvenementC {
 function afficherEvenement ($event){
 		echo "Id Evenement: ".$event->getEvenement()."<br>";

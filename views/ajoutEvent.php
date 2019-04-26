@@ -7,7 +7,7 @@ $evenement=new evenement($_POST['id_event'],$_POST['titre'],$_POST['date'],$_POS
 
 $evenementC=new EvenementC();
 $evenementC->ajouterEvent($evenement);
-header('Location: afficherEvent.php');
+header('Location: ../kiaalap-master/events.php');
 	
 }else{
 	echo "vérifier les champs";

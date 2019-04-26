@@ -1,5 +1,5 @@
 <?PHP
-include "../config.php";
+include_once "../config1.php";
 class PromotionC {
 function afficherPromotion ($promo){
 		echo "Id Promo: ".$promo->getIdPromo()."<br>";
@@ -36,7 +36,7 @@ function afficherPromotion ($promo){
 	 
 	function trierpromo()
 	{
-		$sql="SELECT * FROM promotion ORDER BY date DESC";
+		$sql="SELECT * FROM promotion ORDER BY date ASC";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
